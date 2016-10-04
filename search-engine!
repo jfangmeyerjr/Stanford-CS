@@ -1,3 +1,5 @@
+## code made available by course instructor
+
 def fibonacci(n):
     current = 0
     after = 1
