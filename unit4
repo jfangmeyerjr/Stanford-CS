@@ -1,0 +1,233 @@
+Python 3.3.0 (v3.3.0:bd8afb90ebf2, Sep 29 2012, 01:25:11) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> WARNING: The version of Tcl/Tk (8.5.9) in use may be unstable.
+Visit http://www.python.org/download/mac/tcltk/ for current information.
+
+>>> index = ['a','b','c']
+>>> index.find('a')
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    index.find('a')
+AttributeError: 'list' object has no attribute 'find'
+>>> index.search('a')
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    index.search('a')
+AttributeError: 'list' object has no attribute 'search'
+>>> index.index('a')
+0
+>>> list = ['a',['b','c','d']]
+>>> list[0]
+'a'
+>>> list[1]
+['b', 'c', 'd']
+>>> list[1][1]
+'c'
+>>> list.index('a')
+0
+>>> list.index('a')+1
+1
+>>> list[0].append('e')
+Traceback (most recent call last):
+  File "<pyshell#11>", line 1, in <module>
+    list[0].append('e')
+AttributeError: 'str' object has no attribute 'append'
+>>> list[0] + ('e')
+'ae'
+>>> list.append('e','f')
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    list.append('e','f')
+TypeError: append() takes exactly one argument (2 given)
+>>> if 'a' in list:
+	True
+
+	
+True
+>>> new = (['e'],['f'])
+>>> list.append(new)
+>>> list
+['a', ['b', 'c', 'd'], (['e'], ['f'])]
+>>> list.pop()
+(['e'], ['f'])
+>>> new = ['e'],['f']
+>>> list.append(new)
+>>> list
+['a', ['b', 'c', 'd'], (['e'], ['f'])]
+>>> list.pop()
+(['e'], ['f'])
+>>> new = ['e',['f']]
+>>> list.append(new)
+>>> list
+['a', ['b', 'c', 'd'], ['e', ['f']]]
+>>> list = []
+>>> list
+[]
+>>> list.append(new)
+>>> list
+[['e', ['f']]]
+>>> list.index('e')
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    list.index('e')
+ValueError: 'e' is not in list
+>>> list.index('f')
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    list.index('f')
+ValueError: 'f' is not in list
+>>> list
+[['e', ['f']]]
+>>> list.pop()
+['e', ['f']]
+>>> list
+[]
+>>> list = [[key,[url1,url2,url3]]]
+Traceback (most recent call last):
+  File "<pyshell#38>", line 1, in <module>
+    list = [[key,[url1,url2,url3]]]
+NameError: name 'key' is not defined
+>>> list = [['key',['url1','url2','url3']]]
+>>> list.indez('key')
+Traceback (most recent call last):
+  File "<pyshell#40>", line 1, in <module>
+    list.indez('key')
+AttributeError: 'list' object has no attribute 'indez'
+>>> list.index('key')
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    list.index('key')
+ValueError: 'key' is not in list
+>>> list[:].index('key')
+Traceback (most recent call last):
+  File "<pyshell#42>", line 1, in <module>
+    list[:].index('key')
+ValueError: 'key' is not in list
+>>> list[1].index('key')
+Traceback (most recent call last):
+  File "<pyshell#43>", line 1, in <module>
+    list[1].index('key')
+IndexError: list index out of range
+>>> list[0].index('key')
+0
+>>> list[1].index('url2')
+Traceback (most recent call last):
+  File "<pyshell#45>", line 1, in <module>
+    list[1].index('url2')
+IndexError: list index out of range
+>>> list[0][1].index('url2')
+1
+>>> list[0][1].append('url4')
+>>> list
+[['key', ['url1', 'url2', 'url3', 'url4']]]
+>>> if 'key' in list[0]:
+	True
+
+	
+True
+>>> if list[0] == 'key':
+	True
+
+	
+>>> 
+>>> list[0] == 'key'
+False
+>>> list[0]
+['key', ['url1', 'url2', 'url3', 'url4']]
+>>> list[0][0] == 'key'
+True
+>>> list.index[1]
+Traceback (most recent call last):
+  File "<pyshell#59>", line 1, in <module>
+    list.index[1]
+TypeError: 'builtin_function_or_method' object is not subscriptable
+>>> sublist = list[1]
+Traceback (most recent call last):
+  File "<pyshell#60>", line 1, in <module>
+    sublist = list[1]
+IndexError: list index out of range
+>>> sublist = list[0][1]
+>>> sublist
+['url1', 'url2', 'url3', 'url4']
+>>> sublist.index('url1')
+0
+>>> if url1 in sublist:
+	True
+
+	
+Traceback (most recent call last):
+  File "<pyshell#66>", line 1, in <module>
+    if url1 in sublist:
+NameError: name 'url1' is not defined
+>>> if 'url1' in sublist:
+	True
+
+	
+True
+>>> if 'url1' in list[0][1]:
+	True
+
+	
+True
+>>> index = []
+
+def add_to_index(index,keyword,url):
+    for entry in index:
+        if entry[0] == keyword:
+            if url not in entry[1]:
+                entry[1].append(url)
+            return
+               
+    new_entry = [keyword,[url]]
+    index.append(new_entry)
+        
+
+
+
+add_to_index(index,'udacity','http://udacity.com')
+add_to_index(index,'computing','http://acm.org')
+add_to_index(index,'udacity','http://npr.org')
+add_to_index(index,'udacity','http://udacity.com')
+print index
+SyntaxError: multiple statements found while compiling a single statement
+>>> def lookup(index,keyword):
+    for entry in index:
+        if entry[0] == keyword:
+            return entry[1]
+    return []
+
+>>> content = 'This is a test'
+>>> words = content.split()
+>>> words
+['This', 'is', 'a', 'test']
+>>> for word in words:
+	print word == 'This'
+	
+SyntaxError: invalid syntax
+>>> for word in words:
+	word == 'This'
+
+	
+True
+False
+False
+False
+>>> def add_page_to_index(index,url,content):
+    words = content.split()
+    for word in words:
+        add_to_index(index,word,url)
+    return
+
+def get_page(url):
+  try: # try <block> tries something, allows for errors
+    import urllib  # a library
+    return urllib.urlopen(url).read()
+  except: # what to do if try fails
+    return ""
+  
+def hash_string(keyword,buckets): #puts every possible keyword into hash table
+    sum = 0
+    for letter in keyword:
+        sum += ord(letter) % buckets
+    return sum
